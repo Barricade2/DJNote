@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {%  if request.user.is_authenticated  %}
+        <p>{{ description }}</p>
+        {% for note in notes %}
+            <a href="{% url 'note:note-detail' note.pk %}" >{{ note.title }}</a>
+        {% endfor %}
+    {% else %}
+        <a href="{% url 'login' %}">авторизация</a>
+    {% endif %}
+{% endblock %}

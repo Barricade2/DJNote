@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Вот подсказка: панель разработчика в браузере</p>
+    {%  if request.user.is_authenticated  %}
+        <p>{{ object.text }}</p>
+    {% else %}
+        <p>Пусто</p>
+    {% endif %}
+{% endblock %}
